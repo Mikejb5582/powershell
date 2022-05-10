@@ -1,0 +1,10 @@
+DAY 1
+
+  '' - takes literally
+  "" - allows interpretation
+  . - escape character
+  get-help <cmdlet> (-online) - online opens microsoft help page
+  get-help <cmdlet> (-showwindow) - opens help output in window
+  get-command -update - shows all applications and commands that contain "update"
+  <cmdlet> --erroraction <option> provides ways to interact with errors in output
+  
