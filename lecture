@@ -2,9 +2,28 @@ DAY 1
 
   '' - takes literally
   "" - allows interpretation
-  . - escape character
+  ` - escape character
   get-help <cmdlet> (-online) - online opens microsoft help page
   get-help <cmdlet> (-showwindow) - opens help output in window
   get-command -update - shows all applications and commands that contain "update"
+  get-command -verb write  - displays all commands that write
   <cmdlet> --erroraction <option> provides ways to interact with errors in output
+  $var=1
+  $var2 = 2
+    $var + $var2
+      3
+    "$var + $var2"
+      1 + 2
+  $args - the arguements passed to a function
+  $input - enumeration of the objects passed to a variable
+  $psversiontable
+  $<var>.gettype()
+    (0xFF)
+      255
+  $array1 = @() - creates empty array
+  [array]$array2= "this", "is", '1', 'thing'
+  $array2 = "another", 'awesome', "array", 23
+  $notArray= 'string' * 20 - prints stringstringstring... and so on (not an array) - @('string') also doesn't work
+  $stringArray= @('string',$null) * 20 - makes it an array, prints each on its own line
+  [array]$maybeArray = @('string') *20 - makes an array
   
