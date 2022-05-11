@@ -27,3 +27,22 @@ DAY 1
   $stringArray= @('string',$null) * 20 - makes it an array, prints each on its own line
   [array]$maybeArray = @('string') *20 - makes an array
   
+  
+DAY 2
+  putting something in () tells pwsh to do that first
+  $hashtable = @{} - powershell version of a dictionary, automatically sorts unless you say = [ordered]@{}
+  $hashtable = @{ Game = "Minecraft" ; Publisher = "Mojang"}
+  $hashtable
+    Game                              Minecraft
+    Publisher                         Mojang
+  $hashtable["Game"]
+    Minecraft
+  $hashtable.publisher
+    Mojang
+  $hashtable.keys/values
+    Game/Minecraft
+    Publisher/Mojang
+  $hashtable.cost = "`$26.96"
+  $hashtable["size"] = "3 TB"
+  $hashtable.remove("size")
+  
