@@ -1,0 +1,53 @@
+1
+    Ensure that you have the latest copy of help by updating your help system.
+      update-help
+    Which cmdlets deal with the viewing/manipulating of processes?
+      get-process
+    Display a list of services installed on your local computer. 
+      get-service
+    What cmdlets are used to write or output objects or text to the screen?
+      write-host
+    What cmdlets can be used to create, modify, list, and delete variables?
+      get-variable
+    What cmdlet can be used, other than Get-Help, to find and list other cmdlets?
+      get-command
+    Find the cmdlet that is used to prompt the user for input.
+      read-host
+    
+2
+    not important  
+    
+3
+    really easy
+    
+4
+    Create an array containing a range with a random starting and stopping point.  The starting point will be a random number from -10 through 0.
+    The ending point will be a random number from 1 through 20.
+        [array]$tired = (get-random -minimum -10 -maximum 0)..(get-random -minimum 1 -maximum 20)
+    Create a variable that contains the contents of the array in reverse
+        $reverse = $array[($array.length-1) ** reverses array as new variable
+        [array]::reverse($tired)..0] ** reverses array
+        
+5 
+    $employee1 = { First = "Mary" ; Last = "Hopper" ; ID = "001" ; Job = "Software Developer" }
+    $employee2 = { First = "John" ; Last = "Williams" ; ID = "002" ; Job = "Web Developer" }
+    $employee1.username = mhopper001
+    $employee2.username = jwilliams002
+    $employee3 = { First = "Alex" ; Last = "Moran" ; ID = "003" ; Job = "Software Developer" }
+    $employee1.Status = "Management"
+    $employee2.Status = "Intermediate"
+    $employee3.Status = "Entry Level"
+    
+6   
+    Display the start time of the earliest and latest running processes
+       get-process | where-object processname -ne "idle" | sort-object starttime | select-object -last 1 -first 1 | format-table  starttime
+    Identify a cmdlet that returns the current date and time then using this cmdlet and Select-object, display only the current day of the week
+        date , date | select-object dayofweek
+    Identify a cmdlet that displays a list of installed hotfixes.
+       get-hotfix
+    Extend the expression to sort the list by install date, and display only the install date and hotfix ID.
+       get-hotfix | sort installedon | format-table installedon, hotfixid
+    Extend the expression further, but this time sort by description, include description, hotfix ID, and install Date.
+       get-hotfix | sort description | format-table installedon, hotfixid, description
+       
+       
