@@ -45,4 +45,26 @@ DAY 2
   $hashtable.cost = "`$26.96"
   $hashtable["size"] = "3 TB"
   $hashtable.remove("size")
-  
+  $reverse = $array[($array.length-1)..0] - reverses array
+  function fruit-output {
+      write-output "apple"
+      write-output "orange"
+      write-output "banana"
+      write-output "pear"
+   }
+   fruit-output | sort
+   apple
+   orange
+   banana
+   pear
+   
+   $myblock = { get-service | format-table name, status }
+   & $myblock
+   
+   $a = 1
+   $b = { 1 + 1 }
+   $a += &$b
+   $a 
+      3
+   get-process | group-object {$_.name.substring(0,1).toupper()} | foreach-object{($_.name = " "0)} -- Alphabetically sort results
+   
