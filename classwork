@@ -142,4 +142,28 @@ foreach($proc in $procs){
             }
             
             
+         $day = (get-date).dayofyear
+         
+         
+         return squared number
+         
+        function rectangle ($squarethis) {
+           write-host ($squarethis * $squarethis)
+         }
+
+
+            
+ 11
+        pythagorean theroem
+        function taint ($a, $b) {
+        $c = (($a * $a) + ($b * $b))
+        [math]::sqrt($c)
+        }
         
+        hash table of my basic info
+        function asshole ($first, $last, $age, $weight) {
+        $kg = $weight / 2.2
+        $self = { FirstName = $first ; LastName = $last ; Age = $age ; Weight = $kg }
+        write-host $self
+        }
+
