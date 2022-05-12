@@ -51,3 +51,95 @@
        get-hotfix | sort description | format-table installedon, hotfixid, description
        
        
+7
+    $host_info = new-object object
+    add-member -membertype noteproperty -name ComputerName -value WIN-OPS -inputobject $host_info
+    add-member -membertype noteproperty -name OperatingSystem -value 1.12.0-1ubuntu1.1 -inputobject $host_info
+    add-member -membertype noteproperty -name Version  -value 10.0.19041 -inputobject $host_info
+    add-member -membertype noteproperty -name Manufacturer -value OpenStack Foundation -inputobject $host_info
+    add-member -membertype noteproperty -name Disks -value (get-wmiobject win32_logicaldisk) -inputobject $host_info
+    
+    
+    
+8 
+    Find model number in line1 or line 2
+        $line.$line2 | foreach-object { if($_ -match "[A-Z]{2}[0-9]{4}") { $matches.values } else { 'model not found' } } 
+        
+        
+9
+    Part 1
+
+
+Use an array to iterate and open the following
+Notepad
+MS Edge
+MSpaint
+Query the processes
+Kill the processes from PowerShell
+
+Part 2
+
+Use an array to iterate and open the following
+Notepad
+MS Edge
+MSpaint
+Query the processes
+Save the ProcessIDs to a text file called procs.txt
+Iterate through the ProcessIDs in the text file and kill them
+
+Part 3
+
+Use an array to iterate and open the following
+Notepad
+MS Edge
+MSpaint
+Query the processes and display only the following information in order by process ID
+Process ID
+Process Name
+The time the process started
+The amount of time the process has spent on the processor
+The amount of memory assigned to the process
+
+#store
+$procs = "notepad", "microsoftedge", "mspaint"
+#iterate to start
+$procs | foreach-object { start-process $_ }
+#query
+Get-Process
+#iterate to stop
+$procs | foreach-object { stop-process -processname $_ }
+
+
+#part 2
+
+#save id's to a text file
+$file = "$pwd\procs.txt"
+
+foreach($proc in $procs){
+    get-process | where-object{$_.name -like $proc}
+    foreach-object{add-content $file $_.Id} }
+
+#iterate through Id's in procs.txt to kill processes
+get-content .\procs.txt | foreach-object{stop-process -processnamme $_}
+
+#part 3
+
+#display information about specific processes
+foreach($proc in $procs){
+    get-process | where-object{$_.name -like $proc}
+    format-table -property id, name, starttime, totalprocessortime,
+    virtualmemorysize, workingset64 }
+
+
+
+
+10 
+        return date in ordinal 
+        function orple {
+            $day = get-date | select-object -ExpandProperty dayofyear
+            $year = get-date | select-object -ExpandProperty year
+            write-host "$year-$day"
+            }
+            
+            
+        
