@@ -68,3 +68,94 @@ DAY 2
       3
    get-process | group-object {$_.name.substring(0,1).toupper()} | foreach-object{($_.name = " "0)} -- Alphabetically sort results
    
+   get-process | sort-object starttime | select-object -last 10 | format-table processname, starttime -- list 10 longest running processes
+   
+   get-process | where-object processname -ne "idle" | sort-object starttime | select-object -last 10 | format-table processname, starttime -- filter out errors
+   
+   1..10 | foreach-object {$_ * 2 } -- multiply each element in array
+    $array = 1, 2, 3, 4, 5
+    $sum = 0                       -- finds sum of elements in a string
+    $array | foreach-object { $sum += $_: $sum }
+    
+   get-service | select-object -first 10 | foreach-object{"The Service {0} is call '{1}' : {2}" -f $_name, $_.displayname, $_.status}
+          The Service  is call 'Agent Activation Runtime_3f49589' : Stopped
+          The Service  is call 'AllJoyn Router Service' : Stopped
+          The Service  is call 'Application Layer Gateway Service' : Stopped
+          The Service  is call 'Application Identity' : Stopped
+          The Service  is call 'Application Information' : Running
+          The Service  is call 'Application Management' : Stopped
+          The Service  is call 'App Readiness' : Stopped
+          The Service  is call 'Microsoft App-V Client' : Stopped
+          The Service  is call 'AppX Deployment Service (AppXSVC)' : Stopped
+          The Service  is call 'AssignedAccessManager Service' : Stopped
+
+
+    $my_car = new-object object
+    add-member -membertype noteproperty -name color -value 'white' -inputobject $my_car
+    add-member -me noteproperty -in $my_car -na make -value hyundai
+    add-member -inputobject $my_car noteproperty model "tiburon gt"
+    $my_car | add-member noteproperty size "coupe"
+    add-member -in $my_car -me scriptmethod -na water -value {"tibby has drown"}
+    add-member -in $my_car -me scriptmethod -na givemespeech -value {"i just wanted dutches"}
+    add-member -in $my_car -me scriptmethod -na makeitsnow -value {"donut time"}
+    
+    
+    $my_car.~~~~()
+    ** whatever value **
+    
+    function <function name> ($<parameter name>) { <function code goes here> } - parameter will be variable when passed to function, must declare when creating
+    
+   function basic-param ($value) {
+      if ($value) {
+             write-host "the parameter is $value" -foregrounfcolor green -nonewline
+      }
+      else {
+             write-host "there is no parameter being passed" -foregroundfcolor red
+      }
+    }
+   basic-param 42
+   the paramter is 42
+   
+   basic-param value -42
+   the paramter is 42
+   
+   
+   
+   
+   function more-param ($value1,$value2) {
+      if ($value1 -gt $value2) {
+      
+             write-host "$value1" -foregroundcolor green -nonewline
+             write-host " is bigger than " -nonewline
+             write-host "$value2" -foregroundcolor red -nonewline
+      }
+      elseif ($value2 -gt $value1) {
+             write-host "$value2" -foregroundcolor red
+             writehost " is bigger than " -nonewline
+             write-host "$value1" -foregroundcolor green -nonewline
+      }
+      else { return -1 }
+      
+      more-param 4 2
+      4 is bigger than 2
+      
+      more-param -value1 6 -value2 8
+      8 is bigger than 6
+      
+      
+      
+      unction defualt-param { 
+        param(
+          $parameter1='90',$parameter2='65535'
+        )
+            "The parameters passed are $parameter1 and $parameter2"
+            
+            
+      default-param
+      the parameters passed are 90 and 65535
+      
+      
+      
+      get-help
+      
+      
