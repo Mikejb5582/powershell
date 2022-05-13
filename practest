@@ -89,6 +89,9 @@ function q9($addr) {
     return $false }
     
 }
+
+	### return 4addr -as [IPAddress] -as [Bool] ###
+	
 function q10 ($filepath,$lasthash) {
     <# Return `$true if the contents of the file given in the
        `$filepath argument have changed since `$lasthash was
