@@ -97,9 +97,12 @@ function q10 ($filepath,$lasthash) {
        `$filepath argument have changed since `$lasthash was
        computed. `$lasthash is the previously computed SHA256
        hash (as a string) of the contents of the file. #>
-       if ((get-filehash $filepath) -match ($lasthash)) {
+ 
+ if ((get-filehash $filepath) -match ($lasthash)) {
         return $false }
        else {
        return $true }
        
 }
+
+	return (get-filehash $filepath).hash -ne $lasthash
